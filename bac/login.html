@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>北京仲裁委员会-登录</title>
+<meta http-equiv="X-UA-Compatible" content="edge">
+<link rel="stylesheet" type="text/css" href="static/css/style.css"/>
+</head>
+<body>
+	<div class="header">
+		<div class="wrap loginWrap headerH">
+			<a href="javascript:;" class="dib logo"></a>
+		</div>
+	</div>
+	<div class="wrap loginWrap loginFormWrap clearfix">
+		<div class="loginImg">
+			<img src="static/img/pic_login.png" alt="" />
+		</div>
+		<div class="loginBox">
+			<div class="formTit">仲裁专属邮箱登录</div>
+			<form action="" class="loginformBox">
+				<ul class="loginForm">
+					<li>
+						<input type="text" class="ipt_mobile" placeholder="请输入手机号" id="mobile"/>
+						<p class="err_tip"><i class="icon icon_err"></i><span class="dib">请输入手机号</span></p>
+					</li>
+					<li>
+						<input type="text" class="ipt_valid" placeholder="验证码" id="valid"/><a class="btn btn_valid" id="getValid">获取验证码</a>
+						<p class="err_tip" style="display:none;"><i class="icon icon_err"></i><span class="dib">请输入验证码</span></p>
+					</li>
+				</ul>
+				<div class="submitbox"><a href="javascript:;" class="btn btn_submit" id="submitform">登录</a></div>
+			</form>
+		</div>
+	</div>
+<!--[if lte IE 9]>
+<script type="text/javascript">
+	/*
+	 * 解决ie9以下placeholder不兼容的问题，勿删！！
+	 * */
+		var arrIpt = document.getElementsByTagName("input");
+		for(var i=0; i<arrIpt.length; i++){
+			if(arrIpt[i].getAttribute('type')=='text'){
+				placeHolder(arrIpt[i], true);
+			}
+		}
+        
+        function placeHolder(obj, span) {
+		    if (!obj.getAttribute('placeholder')) return;
+		    var imitateMode = span === true ? true: false;
+		    var supportPlaceholder = 'placeholder' in document.createElement('input');
+		    if (!supportPlaceholder) {
+		        var defaultValue = obj.getAttribute('placeholder');
+		        if (!imitateMode) {
+		            obj.onfocus = function() { (obj.value == defaultValue) && (obj.value = '');
+		                obj.style.color = '';
+		            }
+		            obj.onblur = function() {
+		                if (obj.value == defaultValue) {
+		                    obj.style.color = '';
+		                } else if (obj.value == '') {
+		                    obj.value = defaultValue;
+		                    obj.style.color = '#ACA899';
+		                }
+		            }
+		            obj.onblur();
+		        } else {
+		            var placeHolderCont = document.createTextNode(defaultValue);
+		            var oWrapper = document.createElement('span');
+		            oWrapper.style.cssText = 'position:absolute; color:#ACA899; display:inline-block; overflow:hidden;';
+		            oWrapper.className = 'wrap-placeholder';
+		            oWrapper.style.fontFamily = getStyle(obj, 'fontFamily');
+		            oWrapper.style.fontSize = getStyle(obj, 'fontSize');
+		            oWrapper.style.marginLeft = parseInt(getStyle(obj, 'marginLeft')) ? parseInt(getStyle(obj, 'marginLeft')) + 3 + 'px': 3 + 'px';
+		            oWrapper.style.marginTop = parseInt(getStyle(obj, 'marginTop')) ? getStyle(obj, 'marginTop') : 1 + 'px';
+		            oWrapper.style.paddingLeft = getStyle(obj, 'paddingLeft');
+		            oWrapper.style.width = obj.offsetWidth - parseInt(getStyle(obj, 'marginLeft')) + 'px';
+		            oWrapper.style.height = obj.offsetHeight + 'px';
+		      		      oWrapper.style.lineHeight = obj.nodeName.toLowerCase() == 'textarea' ? '': obj.offsetHeight + 'px';
+		            oWrapper.appendChild(placeHolderCont);
+		            obj.parentNode.insertBefore(oWrapper, obj);
+		            oWrapper.onclick = function() {
+		                obj.focus();
+		            }
+		            //绑定input或onpropertychange事件
+		            if (typeof(obj.oninput) == 'object') {
+		                obj.addEventListener("input", changeHandler, false);
+		            } else {
+		                obj.onpropertychange = changeHandler;
+		            }
+		            function changeHandler() {
+		                oWrapper.style.display = obj.value != '' ? 'none': 'inline-block';
+		            }
+		            /**
+		                 * @name getStyle
+		                 * @class 获取样式
+		                 * @param {Object} obj 要获取样式的对象
+		                 * @param {String} styleName 要获取的样式名
+		                 */
+		            function getStyle(obj, styleName) {
+		                var oStyle = null;
+		                if (obj.currentStyle) oStyle = obj.currentStyle[styleName];
+		                else if (window.getComputedStyle) oStyle = window.getComputedStyle(obj, null)[styleName];
+		                return oStyle;
+		            }
+		        }
+		    }
+}
+</script>
+<![endif]--> 
+</body>
+</html>
