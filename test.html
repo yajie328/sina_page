@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<script src="static/event.js"></script>
+<script src="static/testEvent.js"></script>
+<script src="static/testEvent2.js"></script>
+<body>
+</body>
+<script>
+	eventManger.addHandler("test", function (res) {
+	    console.log("先发布，后订阅4", res);
+	})
+</script>
+</html>
